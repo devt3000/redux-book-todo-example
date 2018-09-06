@@ -1,4 +1,6 @@
-const ingredientsReducer = (ingredients = [], action) => {
+const initialState = [];
+
+const ingredientsReducer = (ingredients = initialState, action) => {
   switch (action.type) {
     case 'ADD_INGREDIENT':
       const newIngredient = {

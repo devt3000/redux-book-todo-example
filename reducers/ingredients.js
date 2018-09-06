@@ -17,4 +17,4 @@ const ingredientsReducer = (ingredients = initialState, action) => {
   return ingredients;
 };
 
-export default ingredientReducer;
+export default ingredientsReducer;

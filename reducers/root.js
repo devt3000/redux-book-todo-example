@@ -1,9 +1,10 @@
+import { combineReducers } from 'redux';
 import recipesReducer from './recipes';
-import ingredientReducer from './ingredients';
+import ingredientsReducer from './ingredients';
 
-const rootReducer = (state, action) => Object.assign({}, state, {
-    recipes: recipesReducer(state.recipes, action),
-    ingredients: ingredientReducer(state.ingredients, action),
-  });
+const rootReducer = combineReducers({
+  recipes: recipesReducer,
+  ingredients: ingredientsReducer,
+});
 
 export default rootReducer;

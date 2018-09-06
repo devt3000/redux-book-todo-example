@@ -1,22 +1,9 @@
-const rootReducer = (state, action) => {
-  switch (action.type) {
-    case 'ADD_RECIPE':
-      return Object.assign({}, state, {
-        recipes: state.recipes.concat({ name: action.name }),
-      });
+import recipesReducer from './recipes';
+import ingredientReducer from './ingredients';
 
-    case 'ADD_INGREDIENT':
-      const newIngredient = {
-        name: action.name,
-        recipe: action.recipe,
-        quantity: action.quantity,
-      };
-      return Object.assign({}, state, {
-        ingredients: state.ingredients.concat(newIngredient),
-      });
-  }
-
-  return state;
-};
+const rootReducer = (state, action) => Object.assign({}, state, {
+    recipes: recipesReducer(state.recipes, action),
+    ingredients: ingredientReducer(state.ingredients, action),
+  });
 
 export default rootReducer;
